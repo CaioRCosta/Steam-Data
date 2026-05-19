@@ -3,6 +3,10 @@
 ## Objetivo do Projeto
 Este projeto investiga os fatores que impulsionam o sucesso, a retenção e a monetização no ecossistema da Steam. Guiado pela metodologia CRISP-DM (Cross-Industry Standard Process for Data Mining) e utilizando um conjunto de dados com mais de 120.000 títulos, aplicou-se técnicas de Ciência de Dados e Aprendizado de Máquina para desmistificar suposições comuns do mercado por meio de evidências empíricas.
 
+## Fonte de Dados
+Devido às restrições de tamanho de armazenamento do GitHub, o dataset bruto (`steam_games.csv`) não está  neste repositório. 
+Para reproduzir esta análise localmente, baixe o conjunto de dados original por meio do link: https://www.kaggle.com/datasets/fronkongames/steam-games-dataset e salve-o na raiz do diretório do projeto.
+
 ## Stack Tecnológico e Mapeamento da Metodologia CRISP-DM
 O ciclo de vida do projeto foi governado pelas fases do framework CRISP-DM, garantindo o alinhamento entre as necessidades do negócio e as decisões de engenharia de dados:
 
