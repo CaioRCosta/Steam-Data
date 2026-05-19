@@ -21,7 +21,7 @@ O ciclo de vida do projeto foi governado pelas fases do framework CRISP-DM, gara
 ### Módulo 1: Preparação de Dados e Engenharia de Atributos (ETL)
 Fase inicial dedicada à ingestão, filtragem e tratamento de inconsistências nas variáveis críticas do ecossistema Steam. Foram calculadas novas métricas de engajamento, como o volume total de revisões e a percentagem real de aprovação de cada título, gerando uma base consolidada para as análises subsequentes.
 
-### Módulo 2: A Curva de Ouro da Localização (Quantidade de Idiomas)
+### Módulo 2: Localização (Quantidade de Idiomas)
 A análise mapeou como a quantidade de idiomas suportados influencia a taxa de aprovação dos utilizadores. Identificou-se um ponto ideal (sweet spot) entre 7 e 9 idiomas, correspondente ao pacote de localização global básico. Oferecer suporte a um volume excessivo de línguas não demonstrou crescimento linear de satisfação, indicando possíveis problemas de controlo de qualidade em traduções muito amplas.
 
 <div align="center">
