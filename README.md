@@ -19,10 +19,10 @@ O ciclo de vida do projeto foi governado pelas fases do framework CRISP-DM, gara
 ## Estrutura do Pipeline e Insights de Negócio
 
 ### Módulo 1: Preparação de Dados e Engenharia de Atributos (ETL)
-Fase inicial dedicada à ingestão, filtragem e tratamento de inconsistências nas variáveis críticas do ecossistema Steam. Foram calculadas novas métricas de engajamento, como o volume total de revisões e a percentagem real de aprovação de cada título, gerando uma base consolidada para as análises subsequentes.
+Fase inicial dedicada à ingestão, filtragem e tratamento de inconsistências nas variáveis críticas do ecossistema Steam. Foram calculadas novas métricas de engajamento, como o volume total de revisões e a porcentagem real de aprovação de cada título, gerando uma base consolidada para as análises subsequentes.
 
 ### Módulo 2: Localização (Quantidade de Idiomas)
-A análise mapeou como a quantidade de idiomas suportados influencia a taxa de aprovação dos utilizadores. Identificou-se um ponto ideal (sweet spot) entre 7 e 9 idiomas, correspondente ao pacote de localização global básico. Oferecer suporte a um volume excessivo de línguas não demonstrou crescimento linear de satisfação, indicando possíveis problemas de controlo de qualidade em traduções muito amplas.
+A análise mapeou como a quantidade de idiomas suportados influencia a taxa de aprovação dos utilizadores. Identificou-se um ponto ideal entre 7 e 9 idiomas, correspondente ao pacote de localização global básico. Oferecer suporte a um volume excessivo de línguas não demonstrou crescimento linear de satisfação, indicando possíveis problemas de controle de qualidade em traduções muito amplas.
 
 <div align="center">
   <img src="images/idiomas_sucesso.png" alt="Impacto da Quantidade de Idiomas na Aprovação" width="800">
@@ -36,15 +36,15 @@ Aprofundando a localização, avaliou-se o retorno financeiro mediano estimado p
 </div>
 
 ### Módulo 4: A Ilusão da Média vs. A Realidade da Mediana (Tempo de Jogo)
-Demonstrou-se estatisticamente o risco de avaliar a retenção de utilizadores utilizando apenas a média. Gêneros Casuais apresentam uma média inflada artificialmente por títulos no estilo "idle" ou contas mantidas ativas exclusivamente para o comércio de cartas colecionáveis da plataforma. A análise da Mediana revelou o comportamento do consumidor padrão: géneros densos como RPG e Estratégia lideram o engajamento real, exigindo e sustentando a atenção orgânica do público após o período inicial.
+Demonstrou-se estatisticamente o risco de avaliar a retenção de utilizadores usando apenas a média. Gêneros Casuais apresentam uma média inflada artificialmente por títulos no estilo "idle" ou contas mantidas ativas exclusivamente para o comércio de cartas colecionáveis da plataforma. A análise da Mediana revelou o comportamento do consumidor padrão: géneros densos como RPG e Estratégia lideram o engajamento, exigindo e sustentando a atenção real do público após o período inicial.
 
 <div align="center">
   <img src="images/retencao_media_mediana.png" alt="Média vs Mediana de Tempo Jogado por Gênero" width="800">
 </div>
 
 ### Módulo 5: Crítica Especializada vs. A Voz da Comunidade
-O cruzamento das avaliações do Metacritic com a aprovação dos utilizadores via regressão linear demonstrou uma convergência geral na indústria. No entanto, o modelo identificou duas categorias de exceções comerciais relevantes:
-* Cult Classics: Jogos com receção mediana pela mídia especializada, mas que atingem patamares de 90%+ de aprovação por comunidades de nicho altamente engajadas.
+O cruzamento das avaliações do Metacritic com a aprovação dos jogadores via regressão linear demonstrou uma convergência geral na indústria. No entanto, o modelo identificou duas categorias de exceções comerciais relevantes:
+* Cult Classics: Jogos com recepção mediana pela mídia especializada, mas que atingem patamares de 90%+ de aprovação por comunidades de nicho altamente engajadas.
 * Review Bombing: Títulos aclamados pela crítica que sofrem rejeição massiva do público consumidor devido a problemas técnicos no lançamento ou políticas predatórias de monetização pós-lançamento.
 
 <div align="center">
@@ -52,14 +52,14 @@ O cruzamento das avaliações do Metacritic com a aprovação dos utilizadores v
 </div>
 
 ### Módulo 6.1: Elasticidade de Preço e Percepção de Valor
-A distribuição do Pico de Jogadores Simultâneos (Peak CCU) sob escala logarítmica confirmou que títulos gratuitos concentram picos de acessos em massa. Contudo, jogos precificados em faixas premium (entre 60 e 80 USD) mantêm volumes elevados de utilizadores ativos de maneira consistente. A barreira de preço elevado não inibe o engajamento de mercado, desde que o escopo e a entrega do produto justifiquem o investimento do consumidor, como ocorre no padrão de títulos AAA.
+A distribuição do Pico de Jogadores Simultâneos (Peak CCU) sob escala logarítmica confirmou que títulos gratuitos concentram picos de acessos em massa. Contudo, jogos precificados em faixas caras (entre 60 e 80 USD) mantêm volumes elevados de players ativos de maneira consistente. A barreira de preço elevado não inibe o engajamento de mercado, desde que o escopo e a entrega do produto justifiquem o investimento do consumidor, como ocorre no padrão de títulos AAA.
 
 <div align="center">
   <img src="images/preco_pico.png" alt="Preço vs Pico de Jogadores" width="800">
 </div>
 
 ### Módulo 6.2: O Paradoxo das DLCs na Taxa de Aprovação
-Contrariando a hipótese de que pacotes de conteúdo adicional geram insatisfação por custos extras, os dados mostraram uma tendência de crescimento na aprovação proporcional ao volume de DLCs disponíveis. O fenómeno evidencia um Viés de Sobrevivência (Survivor Bias): estúdios realizam investimentos recorrentes de expansão de conteúdo exclusivamente em propriedades intelectuais que já possuem aceitação consolidada e uma comunidade ativa de compradores.
+Contrariando a hipótese de que pacotes de conteúdo adicional geram insatisfação por custos extras, os dados mostraram uma tendência de crescimento na aprovação proporcional ao volume de DLCs disponíveis. O fenómeno evidencia um Viés de Sobrevivência (Survivor Bias): estúdios realizam investimentos recorrentes de expansão de conteúdo principalmente em propriedades intelectuais que já possuem aceitação consolidada e uma comunidade ativa de compradores.
 
 <div align="center">
   <img src="images/dlc_aprovacao.png" alt="O Efeito das DLCs na Aprovação" width="800">
