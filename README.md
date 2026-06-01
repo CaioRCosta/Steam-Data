@@ -1,77 +1,137 @@
 # Steam Data Insights: Uma Análise Orientada a Dados do Mercado de Games
 
-## Objetivo do Projeto
-Este projeto investiga os fatores que impulsionam o sucesso, a retenção e a monetização no ecossistema da Steam. Guiado pela metodologia CRISP-DM (Cross-Industry Standard Process for Data Mining) e utilizando um conjunto de dados com mais de 120.000 títulos, aplicou-se técnicas de Ciência de Dados e Aprendizado de Máquina para desmistificar suposições comuns do mercado por meio de evidências empíricas.
+---
 
-## Fonte de Dados
-Devido às restrições de tamanho de armazenamento do GitHub, o dataset bruto (`steam_games.csv`) não está  neste repositório. 
-Para reproduzir esta análise localmente, baixe o conjunto de dados original por meio do link: https://www.kaggle.com/datasets/fronkongames/steam-games-dataset e salve-o na raiz do diretório do projeto.
+## 1. Descrição
 
-## Stack Tecnológico e Mapeamento da Metodologia CRISP-DM
-O ciclo de vida do projeto foi governado pelas fases do framework CRISP-DM, garantindo o alinhamento entre as necessidades do negócio e as decisões de engenharia de dados:
+Este projeto investiga os fatores que impulsionam o sucesso, a retenção e a monetização no ecossistema da Steam. Guiado pela metodologia **CRISP-DM** e utilizando um conjunto de dados com mais de **120.000 títulos**, aplicam-se técnicas de Ciência de Dados e Aprendizado de Máquina para desmistificar suposições comuns do mercado por meio de evidências empíricas.
 
-1. **Entendimento do Negócio:** Formulação de hipóteses comerciais sobre a elasticidade do preço, o impacto real da localização global, a percepção de valor de conteúdos adicionais e as dinâmicas de retenção de utilizadores.
-2. **Entendimento e Preparação dos Dados:** Análise exploratória inicial e execução de um pipeline de ETL para limpeza de valores nulos, conversão de tipos de dados e engenharia de atributos sobre mais de 120.000 registos.
-3. **Modelagem e Avaliação:** Aplicação de modelos estatísticos de regressão e algoritmos de agrupamento espacial para segmentar o catálogo da plataforma e validar as hipóteses de negócio levantadas.
+---
 
-### Tecnologias Utilizadas
-* Linguagem: Python
-* ETL e Manipulação de Dados: Pandas
-* Visualização Analítica: Seaborn e Matplotlib
-* Aprendizado de Máquina: Scikit-Learn
+## 2. Tecnologias e Ferramentas
 
-## Estrutura do Pipeline e Insights de Negócio
+- **Linguagem:** Python
+- **Manipulação de Dados:** Pandas
+- **Visualização:** Matplotlib, Seaborn
+- **Aprendizado de Máquina:** Scikit-Learn (DBSCAN, Regressão Linear)
+- **Ambiente:** Jupyter Notebook
+- **Controle de versão:** Git e GitHub
+- **Fonte de dados:** [Steam Games Dataset — Kaggle](https://www.kaggle.com/datasets/fronkongames/steam-games-dataset)
+- **Metodologia:** CRISP-DM
 
-### Módulo 1: Preparação de Dados e Engenharia de Atributos (ETL)
-Fase inicial dedicada à ingestão, filtragem e tratamento de inconsistências nas variáveis críticas do ecossistema Steam. Foram calculadas novas métricas de engajamento, como o volume total de revisões e a porcentagem real de aprovação de cada título, gerando uma base consolidada para as análises subsequentes.
+---
 
-### Módulo 2: Localização (Quantidade de Idiomas)
-A análise mapeou como a quantidade de idiomas suportados influencia a taxa de aprovação dos utilizadores. Identificou-se um ponto ideal entre 7 e 9 idiomas, correspondente ao pacote de localização global básico. Oferecer suporte a um volume excessivo de línguas não demonstrou crescimento linear de satisfação, indicando possíveis problemas de controle de qualidade em traduções muito amplas.
+## 3. Problema e Objetivo
 
-<div align="center">
-  <img src="images/idiomas_sucesso.png" alt="Impacto da Quantidade de Idiomas na Aprovação" width="800">
-</div>
+O mercado de jogos digitais opera sob diversas suposições não verificadas: mais idiomas significam mais aprovação? DLCs geram insatisfação? Crítica especializada e voz da comunidade convergem? Preço elevado afasta jogadores?
 
-### Módulo 3: O Impacto Comercial dos Idiomas (Filtro de Qualidade)
-Aprofundando a localização, avaliou-se o retorno financeiro mediano estimado para cada idioma individualmente. O resultado apontou que o Inglês apresenta a menor mediana de revisões da plataforma, por ser o padrão de projetos de baixo orçamento que acumulam pouca tração. Em contrapartida, idiomas como Polonês, Italiano, Chinês Tradicional e Português (Brasil) lideram o ranking. Essa presença funciona como um indicador de qualidade: apenas estúdios com orçamento estruturado e planeamento de mercado investem na localização para mercados específicos, o que se correlaciona a volumes de vendas significativamente maiores.
+Este projeto responde cada uma dessas perguntas com dados reais, construindo um pipeline de análise exploratória e aprendizado de máquina que transforma 120.000 registros brutos em insights acionáveis para desenvolvedores e produtores do setor.
 
-<div align="center">
-  <img src="images/idiomas_vendas.png" alt="Mediana de Vendas por Idioma" width="800">
-</div>
+---
 
-### Módulo 4: A Ilusão da Média vs. A Realidade da Mediana (Tempo de Jogo)
-Demonstrou-se estatisticamente o risco de avaliar a retenção de utilizadores usando apenas a média. Gêneros Casuais apresentam uma média inflada artificialmente por títulos no estilo "idle" ou contas mantidas ativas exclusivamente para o comércio de cartas colecionáveis da plataforma. A análise da Mediana revelou o comportamento do consumidor padrão: géneros densos como RPG e Estratégia lideram o engajamento, exigindo e sustentando a atenção real do público após o período inicial.
+## 4. Pipeline da Solução
 
-<div align="center">
-  <img src="images/retencao_media_mediana.png" alt="Média vs Mediana de Tempo Jogado por Gênero" width="800">
-</div>
+1. **Entendimento do Negócio** — formulação de hipóteses comerciais sobre elasticidade de preço, localização, DLCs e retenção de jogadores
+2. **ETL e Preparação dos Dados** — limpeza de valores nulos, conversão de tipos e engenharia de atributos sobre 120.000+ registros
+3. **Análise Exploratória (EDA)** — investigação de seis hipóteses de negócio com visualizações analíticas
+4. **Modelagem** — regressão linear (Metacritic vs. comunidade) e clustering não supervisionado com DBSCAN
+5. **Avaliação** — validação dos clusters por boxplots e interpretação dos outliers de mercado
 
-### Módulo 5: Crítica Especializada vs. A Voz da Comunidade
-O cruzamento das avaliações do Metacritic com a aprovação dos jogadores via regressão linear demonstrou uma convergência geral na indústria. No entanto, o modelo identificou duas categorias de exceções comerciais relevantes:
-* Cult Classics: Jogos com recepção mediana pela mídia especializada, mas que atingem patamares de 90%+ de aprovação por comunidades de nicho altamente engajadas.
-* Review Bombing: Títulos aclamados pela crítica que sofrem rejeição massiva do público consumidor devido a problemas técnicos no lançamento ou políticas predatórias de monetização pós-lançamento.
+---
 
-<div align="center">
-  <img src="images/metacritic_comunidade.png" alt="Metacritic vs Aprovação dos Jogadores" width="800">
-</div>
+## 5. Principais Descobertas
 
-### Módulo 6.1: Elasticidade de Preço e Percepção de Valor
-A distribuição do Pico de Jogadores Simultâneos (Peak CCU) sob escala logarítmica confirmou que títulos gratuitos concentram picos de acessos em massa. Contudo, jogos precificados em faixas caras (entre 60 e 80 USD) mantêm volumes elevados de players ativos de maneira consistente. A barreira de preço elevado não inibe o engajamento de mercado, desde que o escopo e a entrega do produto justifiquem o investimento do consumidor, como ocorre no padrão de títulos AAA.
+### 5.1 Localização: o ponto ideal está entre 7 e 9 idiomas
 
-<div align="center">
-  <img src="images/preco_pico.png" alt="Preço vs Pico de Jogadores" width="800">
-</div>
+![Aprovação vs Quantidade de Idiomas](images/idiomas_sucesso.png)
 
-### Módulo 6.2: O Paradoxo das DLCs na Taxa de Aprovação
-Contrariando a hipótese de que pacotes de conteúdo adicional geram insatisfação por custos extras, os dados mostraram uma tendência de crescimento na aprovação proporcional ao volume de DLCs disponíveis. O fenómeno evidencia um Viés de Sobrevivência (Survivor Bias): estúdios realizam investimentos recorrentes de expansão de conteúdo principalmente em propriedades intelectuais que já possuem aceitação consolidada e uma comunidade ativa de compradores.
+Suportar entre 7 e 9 idiomas corresponde ao pacote de localização global básico e maximiza a aprovação média dos jogadores. Acima disso, a satisfação cai — possivelmente por perda de qualidade nas traduções menos prioritárias.
 
-<div align="center">
-  <img src="images/dlc_aprovacao.png" alt="O Efeito das DLCs na Aprovação" width="800">
-</div>
+---
 
-### Módulo 7: Aprendizado de Máquina Não Supervisionado (Clustering com DBSCAN)
-Para segmentar a dinâmica de mercado sem a interferência de grandes distorções, aplicou-se o algoritmo DBSCAN focado em densidade. O modelo mapeou as variáveis de recepção e alcance, isolando com precisão os fenómenos de vendas e grandes sucessos no Cluster -1 (Outliers). A validação por meio de Boxplots confirmou que a maior parte do catálogo da plataforma opera em margens muito estreitas de engajamento, enquanto um grupo seleto rompe o padrão estatístico tradicional.
+### 5.2 Idioma como indicador de qualidade comercial
 
-<div align="center">
-  <img src="images/dbscan_clustering.png" alt="Boxplots do Clustering com DBSCAN" width="800">
-</div>
+![Mediana de Vendas por Idioma](images/idiomas_vendas.png)
+
+O Inglês apresenta a menor mediana de avaliações da plataforma por ser o padrão de projetos de baixo orçamento. Polonês, Italiano, Chinês Tradicional e Português (Brasil) lideram o ranking — não por tamanho de mercado, mas porque apenas estúdios com orçamento estruturado investem nessas localizações, o que se correlaciona a volumes de vendas significativamente maiores.
+
+---
+
+### 5.3 A ilusão da média: Casual cai do pódio quando usamos mediana
+
+![Média vs Mediana de Tempo Jogado](images/retencao_media_mediana.png)
+
+Pela média, jogos Casuais aparecem como o segundo gênero mais jogado. Pela mediana — que representa o comportamento do jogador comum — eles caem para o último lugar. O fenômeno é explicado por títulos "idle" e contas mantidas ativas para comércio de cartas colecionáveis, que inflam artificialmente a média. RPG e Estratégia lideram o engajamento real.
+
+---
+
+### 5.4 Crítica especializada vs. voz da comunidade
+
+![Metacritic vs Aprovação dos Jogadores](images/metacritic_comunidade.png)
+
+A regressão linear confirma convergência geral entre crítica e comunidade. Mas os outliers são os casos mais relevantes: **Cult Classics** acumulam 90%+ de aprovação popular com notas medianas de crítica, enquanto casos de **Review Bombing** mostram títulos aclamados destruídos pela comunidade por problemas técnicos ou monetização predatória pós-lançamento.
+
+---
+
+### 5.5 Preço elevado não afasta jogadores comprometidos
+
+![Preço vs Pico de Jogadores](images/preco_pico.png)
+
+Títulos gratuitos concentram picos de acesso em massa, mas jogos entre 60 e 80 USD mantêm volumes elevados de jogadores simultâneos de forma consistente. A barreira de preço não inibe o engajamento quando o produto entrega valor proporcional ao investimento — padrão característico de títulos AAA.
+
+---
+
+### 5.6 O paradoxo das DLCs: mais conteúdo, mais aprovação
+
+![DLCs vs Aprovação](images/dlc_aprovacao.png)
+
+Contrariando a hipótese de que DLCs geram insatisfação por custos extras, os dados mostram crescimento de aprovação proporcional ao volume de expansões disponíveis. O fenômeno é explicado pelo **Viés de Sobrevivência**: estúdios investem em DLCs apenas em propriedades intelectuais com comunidade ativa e aceitação consolidada — selecionando naturalmente os títulos mais bem avaliados.
+
+---
+
+### 5.7 Clustering com DBSCAN: mapeando a dinâmica de mercado
+
+![Clustering DBSCAN](images/dbscan_clustering.png)
+
+O algoritmo DBSCAN segmentou o catálogo em dois grupos distintos:
+
+| Cluster | Descrição | Característica |
+|---------|-----------|----------------|
+| **Cluster Principal (Padrão)** | Maioria do catálogo | Opera em margens estreitas de engajamento e pico de jogadores |
+| **Outliers (Megahits / Anomalias)** | Grupo seleto de títulos | Rompe o padrão estatístico com picos de jogadores e aprovação acima da curva |
+
+A validação por boxplots confirmou que a maior parte da plataforma opera em margens muito estreitas, enquanto um grupo seleto quebra completamente o padrão — evidenciando a estrutura de mercado winner-takes-all característica da indústria de games.
+
+---
+
+## 6. Como Reproduzir
+
+**Pré-requisitos:** Python 3.8+, pip
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/CaioRCosta/Steam-Data.git
+cd Steam-Data
+
+# 2. Instale as dependências
+pip install pandas scikit-learn matplotlib seaborn notebook
+
+# 3. Baixe o dataset
+# Acesse: https://www.kaggle.com/datasets/fronkongames/steam-games-dataset
+# Baixe o arquivo steam_games.csv e salve na raiz do projeto
+
+# 4. Execute o notebook
+# Abra steam.ipynb e rode todas as células em ordem
+```
+
+> **Nota:** O dataset não está incluído no repositório por restrições de tamanho do GitHub. O download direto pelo link do Kaggle é necessário antes de executar o notebook.
+
+---
+
+## 7. Contato
+
+**LinkedIn:** [linkedin.com/in/caio-r-costa](https://www.linkedin.com/in/caio-r-costa/)
+
+**GitHub:** [github.com/CaioRCosta](https://github.com/CaioRCosta)
+
+**E-mail:** caiorcwork@gmail.com
