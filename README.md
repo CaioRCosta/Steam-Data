@@ -31,11 +31,11 @@ Este projeto responde cada uma dessas perguntas com dados reais, construindo um 
 
 ## 4. Pipeline da Solução
 
-1. **Entendimento do Negócio** — formulação de hipóteses comerciais sobre elasticidade de preço, localização, DLCs e retenção de jogadores
-2. **ETL e Preparação dos Dados** — limpeza de valores nulos, conversão de tipos e engenharia de atributos sobre 120.000+ registros
-3. **Análise Exploratória (EDA)** — investigação de seis hipóteses de negócio com visualizações analíticas
-4. **Modelagem** — regressão linear (Metacritic vs. comunidade) e clustering não supervisionado com DBSCAN
-5. **Avaliação** — validação dos clusters por boxplots e interpretação dos outliers de mercado
+1. **Entendimento do Negócio**: formulação de hipóteses comerciais sobre elasticidade de preço, localização, DLCs e retenção de jogadores
+2. **ETL e Preparação dos Dados**: limpeza de valores nulos, conversão de tipos e engenharia de atributos sobre 120.000+ registros
+3. **Análise Exploratória (EDA)**: investigação de seis hipóteses de negócio com visualizações analíticas
+4. **Modelagem**: regressão linear (Metacritic vs. comunidade) e clustering não supervisionado com DBSCAN
+5. **Avaliação**: validação dos clusters por boxplots e interpretação dos outliers de mercado
 
 ---
 
@@ -45,7 +45,7 @@ Este projeto responde cada uma dessas perguntas com dados reais, construindo um 
 
 ![Aprovação vs Quantidade de Idiomas](images/idiomas_sucesso.png)
 
-Suportar entre 7 e 9 idiomas corresponde ao pacote de localização global básico e maximiza a aprovação média dos jogadores. Acima disso, a satisfação cai — possivelmente por perda de qualidade nas traduções menos prioritárias.
+Suportar entre 7 e 9 idiomas corresponde ao pacote de localização global básico e maximiza a aprovação média dos jogadores. Acima disso, a satisfação cai, possivelmente por perda de qualidade nas traduções menos prioritárias.
 
 ---
 
@@ -53,7 +53,7 @@ Suportar entre 7 e 9 idiomas corresponde ao pacote de localização global bási
 
 ![Mediana de Vendas por Idioma](images/idiomas_vendas.png)
 
-O Inglês apresenta a menor mediana de avaliações da plataforma por ser o padrão de projetos de baixo orçamento. Polonês, Italiano, Chinês Tradicional e Português (Brasil) lideram o ranking — não por tamanho de mercado, mas porque apenas estúdios com orçamento estruturado investem nessas localizações, o que se correlaciona a volumes de vendas significativamente maiores.
+O Inglês apresenta a menor mediana de avaliações da plataforma por ser o padrão de projetos de baixo orçamento. Polonês, Italiano, Chinês Tradicional e Português (Brasil) lideram o ranking, não por tamanho de mercado, mas porque apenas estúdios com orçamento estruturado investem nessas localizações, o que se correlaciona a volumes de vendas significativamente maiores.
 
 ---
 
@@ -61,7 +61,7 @@ O Inglês apresenta a menor mediana de avaliações da plataforma por ser o padr
 
 ![Média vs Mediana de Tempo Jogado](images/retencao_media_mediana.png)
 
-Pela média, jogos Casuais aparecem como o segundo gênero mais jogado. Pela mediana — que representa o comportamento do jogador comum — eles caem para o último lugar. O fenômeno é explicado por títulos "idle" e contas mantidas ativas para comércio de cartas colecionáveis, que inflam artificialmente a média. RPG e Estratégia lideram o engajamento real.
+Pela média, jogos Casuais aparecem como o segundo gênero mais jogado. Pela mediana, que representa o comportamento do jogador comum, eles caem para o último lugar. O fenômeno é explicado por títulos "idle" e contas mantidas ativas para comércio de cartas colecionáveis, que inflam artificialmente a média. RPG e Estratégia lideram o engajamento real.
 
 ---
 
@@ -77,7 +77,7 @@ A regressão linear confirma convergência geral entre crítica e comunidade. Ma
 
 ![Preço vs Pico de Jogadores](images/preco_pico.png)
 
-Títulos gratuitos concentram picos de acesso em massa, mas jogos entre 60 e 80 USD mantêm volumes elevados de jogadores simultâneos de forma consistente. A barreira de preço não inibe o engajamento quando o produto entrega valor proporcional ao investimento — padrão característico de títulos AAA.
+Títulos gratuitos concentram picos de acesso em massa, mas jogos entre 60 e 80 USD mantêm volumes elevados de jogadores simultâneos de forma consistente. A barreira de preço não inibe o engajamento quando o produto entrega valor proporcional ao investimento, padrão característico de títulos AAA.
 
 ---
 
@@ -85,7 +85,7 @@ Títulos gratuitos concentram picos de acesso em massa, mas jogos entre 60 e 80 
 
 ![DLCs vs Aprovação](images/dlc_aprovacao.png)
 
-Contrariando a hipótese de que DLCs geram insatisfação por custos extras, os dados mostram crescimento de aprovação proporcional ao volume de expansões disponíveis. O fenômeno é explicado pelo **Viés de Sobrevivência**: estúdios investem em DLCs apenas em propriedades intelectuais com comunidade ativa e aceitação consolidada — selecionando naturalmente os títulos mais bem avaliados.
+Contrariando a hipótese de que DLCs geram insatisfação por custos extras, os dados mostram crescimento de aprovação proporcional ao volume de expansões disponíveis. O fenômeno é explicado pelo **Viés de Sobrevivência**: estúdios investem em DLCs apenas em propriedades intelectuais com comunidade ativa e aceitação consolidada, selecionando naturalmente os títulos mais bem avaliados.
 
 ---
 
@@ -100,7 +100,7 @@ O algoritmo DBSCAN segmentou o catálogo em dois grupos distintos:
 | **Cluster Principal (Padrão)** | Maioria do catálogo | Opera em margens estreitas de engajamento e pico de jogadores |
 | **Outliers (Megahits / Anomalias)** | Grupo seleto de títulos | Rompe o padrão estatístico com picos de jogadores e aprovação acima da curva |
 
-A validação por boxplots confirmou que a maior parte da plataforma opera em margens muito estreitas, enquanto um grupo seleto quebra completamente o padrão — evidenciando a estrutura de mercado winner-takes-all característica da indústria de games.
+A validação por boxplots confirmou que a maior parte da plataforma opera em margens muito estreitas, enquanto um grupo seleto quebra completamente o padrão, evidenciando a estrutura de mercado winner-takes-all característica da indústria de games.
 
 ---
 
